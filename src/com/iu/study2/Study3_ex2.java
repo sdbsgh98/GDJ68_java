@@ -25,7 +25,7 @@ public class Study3_ex2 {
 		if(id==ID && pw==PW){
 			System.out.println("로그인 성공");
 			loginResult = true;
-			//loginResult != loginResult;
+			//loginResult =! loginResult;
 		}else {
 			System.out.println("로그인 실패");
 		}
