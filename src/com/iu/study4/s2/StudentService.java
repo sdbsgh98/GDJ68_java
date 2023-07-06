@@ -4,40 +4,57 @@ import java.util.Scanner;
 
 public class StudentService {
 	
-	public Student makeStudentOne() {
-		/*
-		 * 학생 1명을 만들어서 이름, 번호, 국어, 영어, 수학
-		 * 총점 평균을 계산
-		 * 학생을 리턴
-		 */
-		
+	public Student findByNum(Student[] students) {
 		Scanner sc = new Scanner(System.in);
+		System.out.println("찾을려는 학생의 번호를 입력하세요.");
+		int num = sc.nextInt();
 		
-		Student student = new Student();
+		Student student = null;
 		
-		System.out.println("이름을 입력해주세요.");
-		student.name = sc.next();
-		
-		System.out.println("번호를 입력해주세요.");
-		student.num = sc.nextInt();
-		
-		System.out.println("국어점수를 입력해주세요.");
-		student.kor = sc.nextInt();
-		
-		System.out.println("영어점수를 입력해주세요.");
-		student.eng = sc.nextInt();
-		
-		System.out.println("수학점수를 입력해주세요.");
-		student.math = sc.nextInt();
-		
-		student.total = student.kor + student.eng + student.math;
-		//System.out.println("총점은 "+student.total+"입니다.");
-		
-		student.avg = (student.total)/3.0;
-		//System.out.println("평균은 "+student.avg+"입니다.");
-		
+		for(int i=0; i<students.length; i++) {
+			if(num == students[i].getNum()) {
+				student = students[i];
+				break;
+			}
+		}
 		return student;
 	}
+	
+//	public Student makeStudentOne() {
+//	
+//		/*
+//		 * 학생 1명을 만들어서 이름, 번호, 국어, 영어, 수학
+//		 * 총점 평균을 계산
+//		 * 학생을 리턴
+//		 */
+//		
+//		Scanner sc = new Scanner(System.in);
+//		
+//		Student student = new Student();
+//		
+//		System.out.println("이름을 입력해주세요.");
+//		student.name = sc.next();
+//		
+//		System.out.println("번호를 입력해주세요.");
+//		student.num = sc.nextInt();
+//		
+//		System.out.println("국어점수를 입력해주세요.");
+//		student.kor = sc.nextInt();
+//		
+//		System.out.println("영어점수를 입력해주세요.");
+//		student.eng = sc.nextInt();
+//		
+//		System.out.println("수학점수를 입력해주세요.");
+//		student.math = sc.nextInt();
+//		
+//		student.total = student.kor + student.eng + student.math;
+//		//System.out.println("총점은 "+student.total+"입니다.");
+//		
+//		student.avg = (student.total)/3.0;
+//		//System.out.println("평균은 "+student.avg+"입니다.");
+//		
+//		return student;
+//	}
 	
 	public Student[] makeStudents() {
 		
@@ -64,25 +81,27 @@ public class StudentService {
 			Student student = new Student();
 			
 			System.out.println("이름을 입력해주세요.");
-			student.name = sc.next();
+			student.setName(sc.next());
 		
 			System.out.println("번호를 입력해주세요.");
-			student.num = sc.nextInt();
+			student.setNum(sc.nextInt());
 			
 			System.out.println("국어점수를 입력해주세요.");
-			student.kor = sc.nextInt();
+			student.setKor(sc.nextInt());
 		
 			System.out.println("영어점수를 입력해주세요.");
-			student.eng = sc.nextInt();
+			student.setEng(sc.nextInt());
 		
 			System.out.println("수학점수를 입력해주세요.");
-			student.math = sc.nextInt();
+			student.setMath(sc.nextInt());
 			
-			student.total = student.kor + student.eng + student.math;
+//			student.total = student.kor + student.eng + student.math;
 //		    System.out.println("총점은 "+student.total+"입니다.");
 		
-		    student.avg = (student.total)/3.0;
+//		    student.avg = (student.total)/3.0;
 //		    System.out.println("평균은 "+student.avg+"입니다.");
+			
+			student.cal();
 		    
 		    students[i] = student;
 		    
